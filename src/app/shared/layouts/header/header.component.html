@@ -1,0 +1,12 @@
+<header>
+  <ul class="navigation">
+    <li 
+      class="navigation-item"
+      *ngFor="let item of categories" 
+      [ngClass]="{'navigation-item-active': activeCategoryKey === item.key}"
+      (click)="changeCategory(item.key)"
+    >
+      {{ item.name }}
+    </li>
+  </ul>
+</header>

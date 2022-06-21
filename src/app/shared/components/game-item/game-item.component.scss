@@ -1,0 +1,53 @@
+.game-item {
+  aspect-ratio: 16 / 9;
+  max-width: 320px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  .game-meta {
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    height: 100%;
+    color: black;
+    background: rgba(255,255,255,0.5);
+    .play-btn {
+      width: 30px;
+    }
+    .game-name {
+      font-weight: 700;
+    }
+  }
+  &:hover {
+    .game-meta {
+      opacity: 1;
+    }
+  }
+  .jackpot-amount {
+    color: white;
+    margin: 0;
+    font-weight: 700;
+    text-align: center;
+    padding: 5px 0;
+    background-color: rgba(0,0,0,0.5);
+  }
+  .new-label {
+    position: absolute;
+    color: white;
+    background-color: var(--green);
+    padding: 5px;
+    top: 0;
+    right: 0;
+  }
+}

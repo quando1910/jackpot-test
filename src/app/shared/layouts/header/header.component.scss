@@ -1,0 +1,38 @@
+.navigation {
+  display: flex;
+  position: fixed;
+  padding: 0 10px;
+  height: 65px;
+  top: 0;
+  z-index: 1;
+  left: 0;
+  width: 100%;
+  background-color: var(--dark);
+  color: white;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  @media only screen and (max-width: 1200px) {
+    height: 130px;
+  }
+  @media only screen and (max-width: 576px) {
+    height: 195px;
+  }
+  &-item {
+    min-width: 100px;
+    display: flex;
+    transition: all 0.2s ease-in-out;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    font-size: 22px;
+    cursor: pointer;
+    &:hover:not(.navigation-item-active) {
+      background-color: black;
+    }
+  }
+  &-item-active {
+    background-color: var(--green);
+  }
+  
+}
