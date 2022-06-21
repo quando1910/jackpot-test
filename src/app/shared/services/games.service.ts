@@ -48,7 +48,7 @@ export class GamesService {
         )) {
         return true;
       }
-      if (cur === 'jackpot' && game.jackpot) {
+      if (cur === 'jackpots' && game.jackpot) {
         return true;
       }
       return false
