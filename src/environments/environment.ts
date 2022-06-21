@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://stage.whgstage.com'
+  apiUrl: 'https://stage.whgstage.com'
 };
 
 /*
