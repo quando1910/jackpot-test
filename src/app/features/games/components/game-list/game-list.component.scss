@@ -1,0 +1,14 @@
+.games-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 40px 10px;
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  @media only screen and (max-width: 960px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media only screen and (max-width: 576px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { GamesService } from '../../services/games.service';
+import { ActivatedRoute, ActivationEnd, Params, Router } from '@angular/router';
+import { filter } from 'rxjs';
+import { Category } from '../../models/category.model';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +9,7 @@ import { GamesService } from '../../services/games.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  categories = [
+  categories: Category[] = [
     {
       name: 'top games' ,
       key: 'top'
@@ -49,14 +51,29 @@ export class HeaderComponent {
       key: 'other'
     }
   ];
-  activeCategoryKey = 'top';
+  activeCategoryKey: string = '';
 
   constructor(
-    private gamesSv: GamesService
+    private router: Router,
+    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
   ) {}
 
-  changeCategory(key: string) {
-    this.activeCategoryKey = key;
-    this.gamesSv.currentCategory.next(key);
+  ngOnInit() {
+    this.route.queryParams.pipe(filter((x) => !!x && Object.keys(x).length > 0)).subscribe(params => {
+      this.activeCategoryKey = params['category'] ?? 'top'; 
+    });
   }
+
+  changeCategory(key: string) {
+    const queryParams: Params = { category: key };
+
+    this.router.navigate(
+      [], 
+      {
+        relativeTo: this.activatedRoute,
+        queryParams: queryParams, 
+        queryParamsHandling: 'merge',
+      });
+    }
 }

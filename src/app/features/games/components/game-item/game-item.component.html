@@ -1,8 +1,8 @@
 <div class="game-item" [ngStyle]="{backgroundImage: 'url(' + data.image + ')'}">
   <p *ngIf="data.jackpot" class="jackpot-amount">{{ data.jackpot | currency }}</p>
-  <span *ngIf="isNew()" class="new-label">NEW</span>
+  <span *ngIf="ribbonText" class="new-label">{{ ribbonText }}</span>
   <div class="game-meta">
     <img class="play-btn" src="assets/images/play.svg">
-    <p class="game-name">{{data.name}}</p>
+    <p class="game-name">{{ data.name }}</p>
   </div>
 </div>
